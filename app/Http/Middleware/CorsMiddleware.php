@@ -13,6 +13,7 @@ class CorsMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
+    /**To solve the CORS problem */
     public function handle($request, Closure $next)
     {
         $headers = [

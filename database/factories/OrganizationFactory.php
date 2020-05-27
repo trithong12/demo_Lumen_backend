@@ -1,12 +1,12 @@
 <?php
 
 use Faker\Generator as Faker;
-use Illuminate\Support\Str;
 use App\Models\Organization;
 
+/**Assign random value for each column */
 $factory->define(Organization::class, function (Faker $faker) {
     return [
         'org_name' => $faker->name,
-        'org_addr' => Str::random(50),
+        'org_addr' => $faker->address,
     ];
 });

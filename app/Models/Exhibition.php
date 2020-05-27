@@ -18,35 +18,17 @@ class Exhibition extends Model
         'image_url',
         'start_datetime',
         'end_datetime',
-        'exh_cate_id',
         'site_id',
-        'master_unit',
-        'sub_unit',
-        'support_unit'
+        'show_unit',
     ];
-
-    public function category()
-    {
-        return $this->belongsTo(ExhibitionCategory::class);
-    }
 
     public function site()
     {
-        return $this->belongsTo(Site::class);
+        return $this->belongsTo(Site::class, 'site_id', 'site_id');
     }
 
-    public function masterUnit()
+    public function showUnit()
     {
-        return $this->belongsTo(Organization::class);
-    }
-
-    public function subUnit()
-    {
-        return $this->belongsTo(Organization::class);
-    }
-
-    public function supportUnit()
-    {
-        return $this->belongsTo(Organization::class);
+        return $this->belongsTo(Organization::class, 'show_unit', 'org_id');
     }
 }

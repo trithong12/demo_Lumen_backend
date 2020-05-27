@@ -21,6 +21,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
     $router->group(['prefix' => 'exhibitions'], function () use ($router) {
         $router->get('/', ['uses' => 'ExhibitionController@index']);
+        $router->get('/all', ['uses' => 'ExhibitionController@getAll']);
         $router->get('/{id}', ['uses' => 'ExhibitionController@show']);
         $router->post('/', ['uses' => 'ExhibitionController@create']);
         $router->put('/{id}', ['uses' => 'ExhibitionController@update']);
@@ -33,5 +34,13 @@ $router->group(['prefix' => 'api'], function () use ($router) {
         $router->post('/', ['uses' => 'OrganizationController@create']);
         $router->put('/{id}', ['uses' => 'OrganizationController@update']);
         $router->delete('/{id}', ['uses' => 'OrganizationController@delete']);
+    });
+
+    $router->group(['prefix' => 'sites'], function () use ($router) {
+        $router->get('/', ['uses' => 'SiteController@index']);
+        $router->get('/{id}', ['uses' => 'SiteController@show']);
+        $router->post('/', ['uses' => 'SiteController@create']);
+        $router->put('/{id}', ['uses' => 'SiteController@update']);
+        $router->delete('/{id}', ['uses' => 'SiteController@delete']);
     });
 });

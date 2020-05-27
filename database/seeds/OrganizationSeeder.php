@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use App\Models\Organization;
 
 class OrganizationSeeder extends Seeder
@@ -13,6 +12,10 @@ class OrganizationSeeder extends Seeder
      */
     public function run()
     {
+        /**
+         * To generate 20 tuples of Organization to the database (table: organizations)
+         * Depends on rules written in factories/OrganizationFactory.php
+         * */
         factory(Organization::class, 20)->create();
     }
 }

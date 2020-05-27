@@ -16,8 +16,8 @@ class CreateOrganizationsTable extends Migration
         /* 單位 */
         Schema::create('organizations', function (Blueprint $table) {
             $table->id('org_id'); // 識別碼，Primary key，Auto increment
-            $table->string('org_name');
-            $table->string('org_addr');
+            $table->string('org_name'); // 單位名稱，必填
+            $table->string('org_addr'); // 單位地址，必填
             $table->timestamps();
         });
     }

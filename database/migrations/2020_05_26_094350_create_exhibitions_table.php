@@ -24,16 +24,10 @@ class CreateExhibitionsTable extends Migration
             $table->string('image_url')->nullable(); // 圖片連結
             $table->dateTime('start_datetime'); // 開始時間，必填
             $table->dateTime('end_datetime'); // 結束時間，必填
-            $table->integer('exh_cate_id'); // 展覽類別，必填
-            $table->foreign('exh_cate_id')->references('exhibition_categories')->on('exh_cate_id'); // Reference constraint
             $table->integer('site_id'); // 場地，必填
             $table->foreign('site_id')->references('sites')->on('site_id'); // Reference constraint
-            $table->integer('master_unit'); // 主辦單位，必填
-            $table->foreign('master_unit')->references('organizations')->on('org_id');
-            $table->integer('sub_unit')->nullable(); // 協辦單位
-            $table->foreign('sub_unit')->references('organizations')->on('org_id'); // Reference constraint
-            $table->integer('support_unit')->nullable(); // 贊助單位
-            $table->foreign('support_unit')->references('organizations')->on('org_id'); // Reference constraint
+            $table->integer('show_unit'); // 演出單位，必填
+            $table->foreign('show_unit')->references('organizations')->on('org_id');
             $table->timestamps();
         });
     }
